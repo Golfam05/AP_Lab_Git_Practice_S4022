@@ -13,9 +13,12 @@ public:
 	}
 	string& getName()  { return name; }
 
+	Person() {};
+
 private:
 	string name;
 	int age;
+	friend class Group;
 
 };
 
@@ -57,12 +60,11 @@ public:
 	~Group() {
 		delete[] members;
 	}
-
 private:
 	int size;
 	int cap;
 	Person* members;
-
+	friend bool isGroupFull(Group g) {	};
 };
 
 bool isGroupFull(Group g) {
